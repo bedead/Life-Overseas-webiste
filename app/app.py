@@ -88,6 +88,3 @@ def contact():
 def faculty():
     return render_template("Life-Overseas---Faculty.html")
 
-
-if __name__=="__main__":
-    app.run(debug=True)
