@@ -52,7 +52,7 @@ def admin():
                     Admin_login["adminNo"]=ind
                     Admin_login["name"]=name
 
-                    return redirect(url_for("/admin/dashboard"))
+                    return redirect(url_for("admin_panel"))
 
         except:
             return redirect(url_for("index"))
@@ -60,7 +60,6 @@ def admin():
     return render_template("Admin.html")
 
 @app.route("/admin/panel")
-@app.route("/admin/dashboard")
 def admin_panel():
     if Admin_login["locked"]==True:
         return redirect(url_for("admin"))
