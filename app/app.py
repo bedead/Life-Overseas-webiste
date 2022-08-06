@@ -52,6 +52,8 @@ def admin():
                     Admin_login["adminNo"]=ind
                     Admin_login["name"]=name
 
+                    return redirect(url_for("/admin/dashboard"))
+
         except:
             return redirect(url_for("index"))
 
