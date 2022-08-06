@@ -64,7 +64,7 @@ def admin_panel():
     if Admin_login["locked"]==True:
         return redirect(url_for("admin"))
     elif Admin_login["locked"]==False:
-        return render_template("Admin-Panel.html",Admin_login)
+        return render_template("Admin-Panel.html")
     else:
         return redirect(url_for("index"))
 
