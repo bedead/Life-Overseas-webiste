@@ -28,6 +28,12 @@ Admin_login = {
     "adminNo":0,
 }
 
+try:
+    questions = list(realtime_db.child("AppData").child("Questions").get().val())
+    if None in questions:
+        questions.remove(None)
+except:
+    pass
 # Admin Login and panel
 @app.route("/admin", methods= ["POST","GET"])
 def admin():
@@ -85,7 +91,14 @@ def about():
 def contact():
     return render_template("Life-Overseas---Contact.html")
 
-@app.route("/faculty")
+@app.route("/faculty", methods=["POST","GET"])
 def faculty():
-    return render_template("Life-Overseas---Faculty.html")
+    if request.method == "POST":
+        values = request.form
+        question = values["question"]
+        print(question)
+
+        
+        
+    return render_template("Life-Overseas---Faculty.html", questions=questions)
 
