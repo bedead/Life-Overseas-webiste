@@ -1,25 +1,8 @@
-import pyrebase
 from flask import Flask, flash, redirect, render_template, request, url_for
+from app.connectDb import *
 
 name = "Life Overseas"
 app = Flask(name)
-
-
-config = {
-  "apiKey": "AIzaSyALZS0dDe0Btyg_K7YFOOnWRNkJxapKMK0",
-  "authDomain": "life-overseas.firebaseapp.com",
-  "databaseURL": "https://life-overseas-default-rtdb.asia-southeast1.firebasedatabase.app",
-  "projectId": "life-overseas",
-  "storageBucket": "life-overseas.appspot.com",
-  "messagingSenderId": "2966303536",
-  "appId": "1:2966303536:web:061114482e2d9d4c870ef5",
-  "measurementId": "G-D52BSC4QRN"
-};
-firebase = pyrebase.initialize_app(config)
-user_auth = firebase.auth()
-realtime_db = firebase.database()
-
-
 
 
 Admin_login = {
@@ -95,9 +78,9 @@ def faculty():
     if request.method == "POST":
         values = request.form
         question = values["question"]
-        print(question)
-
-        return redirect(url_for('index'))
+        realtime_db.child("AppData").child("Questions").child(question).set("Not yet answers by our team.")
+        
+        return redirect(url_for('faculty'))
         
     return render_template("Life-Overseas---Faculty.html", questions=questions)
 
