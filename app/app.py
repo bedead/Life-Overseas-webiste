@@ -25,6 +25,7 @@ realtime_db = firebase.database()
 Admin_login = {
     "locked":True,
     "name":"",
+    'adminNo':0
 }
 
 # Admin Login and panel
@@ -48,6 +49,7 @@ def admin():
                     global Admin_login
                     print("ok")
                     Admin_login["locked"]=False
+                    Admin_login['adminNo']=ind
                     Admin_login["name"]=name
 
                     return redirect(url_for("admin_panel"))
@@ -85,11 +87,9 @@ def contact():
 
 @app.route("/faculty", methods=["POST","GET"])
 def faculty():
-    questions=[]
+    questions= dict()
     try:
-        questions = list(realtime_db.child("AppData").child("Questions").get().val())
-        if None in questions:
-            questions.remove(None)
+        questions = dict(realtime_db.child("AppData").child("Questions").get().val())
     except:
         pass
     if request.method == "POST":
@@ -97,7 +97,7 @@ def faculty():
         question = values["question"]
         print(question)
 
-        
+        return redirect(url_for('index'))
         
     return render_template("Life-Overseas---Faculty.html", questions=questions)
 
