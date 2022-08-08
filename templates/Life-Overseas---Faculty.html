@@ -10,9 +10,11 @@
   <link rel="stylesheet" href="/static/css/data.css" media="screen">
   <link rel="stylesheet" href="/static/css/Life-Overseas---Faculty.css" media="screen">
   <link rel="stylesheet" href="/static/css/QnA-Faculty.css" media="screen">
+  <link rel="stylesheet" href="/static/css/toastr.css" media="screen">
 
   <script class="u-script" type="text/javascript" src="/static/js/jquery.js" "="" defer=""></script>
     <script class=" u-script" type="text/javascript" src="/static/js/data.js" "="" defer=""></script>
+    <script class=" u-script" type="text/javascript" src="/static/js/toastr.js" "="" defer=""></script>
     <link id=" u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
@@ -252,29 +254,39 @@
               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-30 u-white" required=""></textarea>
           </div>
           <div class="u-align-left u-form-group u-form-submit">
-            <a href=""
+            <a href="/faculty" target="_self"
               class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-grey-40 u-radius-30 u-btn-1">Submit</a>
-            <input type="submit" value="submit" class="u-form-control-hidden">
+            <input onclick="questionPosted()" type="submit" value="submit" class="u-form-control-hidden">
           </div>
         </form>
       </div>
     </div>
   </section>
 
-  {% if questions %}
+  {% if data.questions %}
   <section class="u-align-center u-black u-clearfix u-section-3" id="sec-1468">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-text u-text-default u-text-1">Q&amp;A</h2>
       <div class="u-accordion u-faq u-spacing-10 u-accordion-1">
-        {% for key in questions %}
+        {% for key, value in data.questions.items() %}
         <div class="u-accordion-item">
-          <a class="u-accordion-link u-active-grey-90 u-button-style u-grey-90 u-hover-grey-75 u-text-active-white u-text-body-alt-color u-accordion-link-3" id="link-accordion-854e" aria-controls="accordion-854e" aria-selected="false">
-            <span class="u-accordion-link-text">{{key}}</span><span class="u-accordion-link-icon u-icon u-text-palette-1-light-2 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 448 448" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7f79"></use></svg><svg class="u-svg-content" viewBox="0 0 448 448" id="svg-7f79" style=""><path d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0"></path></svg></span>
+          <a class="u-accordion-link u-active-grey-90 u-button-style u-grey-90 u-hover-grey-75 u-text-active-white u-text-body-alt-color u-accordion-link-3"
+            id="link-accordion-854e" aria-controls="accordion-854e" aria-selected="false">
+            <span class="u-accordion-link-text">{{key}}</span><span
+              class="u-accordion-link-icon u-icon u-text-palette-1-light-2 u-icon-3"><svg class="u-svg-link"
+                preserveAspectRatio="xMidYMin slice" viewBox="0 0 448 448" style="">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7f79"></use>
+              </svg><svg class="u-svg-content" viewBox="0 0 448 448" id="svg-7f79" style="">
+                <path
+                  d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0">
+                </path>
+              </svg></span>
           </a>
-          <div class="u-accordion-pane u-container-style u-grey-80 u-accordion-pane-3" id="accordion-854e" aria-labelledby="link-accordion-854e">
+          <div class="u-accordion-pane u-container-style u-grey-80 u-accordion-pane-3" id="accordion-854e"
+            aria-labelledby="link-accordion-854e">
             <div class="u-container-layout u-container-layout-3">
               <div class="u-clearfix u-rich-text u-text">
-                <p>{{questions[key]}}</p>
+                <p>{{value}}</p>
               </div>
             </div>
           </div>
@@ -344,4 +356,14 @@
   </footer>
 
 </body>
+<script>
+  function questionPosted() {
+    var data = "{{data}}";    
+    toastr.success("Question have been posted.")
+    setTimeout(function () { 
+      location.reload()
+     },2500)
+  }
+</script>
+
 </html>

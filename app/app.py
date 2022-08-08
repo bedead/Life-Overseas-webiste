@@ -1,9 +1,9 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
 from app.connectDb import *
-
+import os
 name = "Life Overseas"
 app = Flask(name)
-
+app.secret_key = 'jhsd]e[3984764.573kjs4a1'
 
 Admin_login = {
     "locked":True,
@@ -24,7 +24,7 @@ def admin():
             admin_names = list(admins_name.values())
             admin_pass = dict(realtime_db.child("Data").child("Password").get().val())
             admin_passwords = list(admin_pass.values())
-            
+
             if (name in admin_names):
                 print("found")
                 ind = admin_names.index(name)
@@ -56,7 +56,7 @@ def admin_panel():
 
 
 # user pages
-@app.route("/", methods=["POST","GET"])
+@app.route("/")
 def index():
     return render_template("Life-Overseas---Home.html")
 
@@ -68,19 +68,18 @@ def about():
 def contact():
     return render_template("Life-Overseas---Contact.html")
 
-@app.route("/faculty", methods=["POST","GET"])
+@app.route("/faculty",methods=["GET","POST"])
 def faculty():
-    questions= dict()
-    try:
-        questions = dict(realtime_db.child("AppData").child("Questions").get().val())
-    except:
-        pass
+    questions = dict(realtime_db.child("AppData").child("Questions").get().val())
+    data= {
+        "questions": questions,
+    }
     if request.method == "POST":
         values = request.form
         question = values["question"]
-        realtime_db.child("AppData").child("Questions").child(question).set("Not yet answers by our team.")
+        try:
+            realtime_db.child("AppData").child("Questions").child(question).set("Yet to be answered by our team.")
+        except:
+            pass    
         
-        return redirect(url_for('faculty'))
-        
-    return render_template("Life-Overseas---Faculty.html", questions=questions)
-
+    return render_template("Life-Overseas---Faculty.html",data=data)
