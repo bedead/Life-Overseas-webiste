@@ -1,9 +1,6 @@
 
 # Life Overseas Company
 
-
-
-
 ## Authors
 
 - [@Satyam Mishra](https://www.github.com/bedead)
