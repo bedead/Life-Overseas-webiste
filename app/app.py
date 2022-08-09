@@ -11,7 +11,7 @@ Admin_login = {
     'adminNo':0
 }
 # Admin Login and panel
-@app.route("/", methods= ["POST","GET"], subdomain='admin')
+@app.route("/admin/", methods= ["POST","GET"])
 def admin_root():
     if request.method == "POST":
         values = request.form
@@ -36,7 +36,7 @@ def admin_root():
 
     return render_template("Admin.html")
 
-@app.route("/dashboard/",subdomain='admin')
+@app.route("/admin/dashboard/")
 def admin_panel():
     if Admin_login["locked"]==True:
         return redirect(url_for("admin_root"))
