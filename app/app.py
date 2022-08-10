@@ -115,14 +115,14 @@ def faculty():
 
 
 @app.route("/user/signin",methods=["GET","POST"])
-def user_login():
+def user_signin():
     visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
     realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
 
     return render_template("Login page")
 
 @app.route("/user/signup",methods=["GET","POST"])
-def user_login():
+def user_signup():
     visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
     realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
 
