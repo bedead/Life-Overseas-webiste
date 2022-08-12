@@ -1,6 +1,4 @@
 """Flask configuration."""
-from os import environ, path
-
 
 class Config:
     """Base config."""
