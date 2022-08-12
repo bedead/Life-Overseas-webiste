@@ -1,13 +1,11 @@
 from flask import render_template, request
 from flask import Blueprint
 from flask import current_app as app
-from apps.pyrebase import *
+from apps.packages.pyrebase import *
 
 
 userLogin = Blueprint(
-    'userLogin_bp', __name__,
-    template_folder='templates',
-    static_folder='static',
+    'userLogin', __name__,
     url_prefix='/user'
 )
 

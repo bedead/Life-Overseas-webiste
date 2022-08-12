@@ -2,6 +2,6 @@ __pycache__
 .venv
 apps/__pycache__
 apps/admin/__pycache__
-apps\main\__pycache__
-apps\userLogin\__pycache__
-apps\users\__pycache__
+apps/main/__pycache__
+apps/userLogin/__pycache__
+apps/users/__pycache__  

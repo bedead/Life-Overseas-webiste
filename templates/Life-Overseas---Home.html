@@ -8,7 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="Satyam Mishra">
   <title>Life Overseas - Home</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/data.css') }}" media="screen">
+
+
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/data.css') }}" media="screen">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/Life-Overseas---Home.css') }}" media="screen">
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180"
@@ -52,8 +55,8 @@
 <body class="u-body u-xl-mode" data-lang="en">
   <header class="u-black u-clearfix u-header u-sticky u-sticky-6236 u-header" id="sec-ce63">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="/" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
-        <img src="static/images/825406866-0.png" class="u-logo-image u-logo-image-1">
+      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
+        <img src="{{url_for('static',filename='images/825406866-0.png')}} " class="u-logo-image u-logo-image-1">
       </a>
       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -76,19 +79,19 @@
           <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/" style="padding: 10px 20px;">Home</a>
+                href="{{url_for('main.index')}}" style="padding: 10px 20px;">Home</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/faculty" style="padding: 10px 20px;">Faculty</a>
+                href="{{url_for('main.faculty')}}" style="padding: 10px 20px;">Faculty</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/about" style="padding: 10px 20px;">About</a>
+                href="{{url_for('main.about')}}" style="padding: 10px 20px;">About</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/contact" style="padding: 10px 20px;">Contact</a>
+                href="{{url_for('main.contact')}}" style="padding: 10px 20px;">Contact</a>
             </li>
           </ul>
         </div>
@@ -97,13 +100,13 @@
             <div class="u-inner-container-layout u-sidenav-overflow">
               <div class="u-menu-close"></div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Home</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.index')}}">Home</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/faculty">Faculty</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.faculty')}}">Faculty</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/about">About</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.about')}}">About</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/contact">Contact</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.contact')}}">Contact</a>
                 </li>
               </ul>
             </div>
@@ -130,7 +133,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-1"><img
-                  src="/static/images/182321.png" alt=""></span>
+                  src="{{url_for('static',filename='images/182321.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-2">Learn IELTS</h4>
               <a href="#sec-b0ca"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">Start
@@ -151,7 +154,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-3"><img
-                  src="/static/images/1086916.png" alt=""></span>
+                  src="{{url_for('static',filrname='images/1086916.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-3">Find ​counsellor</h4>
               <a href="#sec-069c"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Start
@@ -172,7 +175,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-5"><img
-                  src="/static/images/8068687.png" alt=""></span>
+                  src="{{url_for('static',filename='images/8068687.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-4">Learn Toefl</h4>
               <a href="#sec-b0ca"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-3">
@@ -193,7 +196,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-4"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-7"><img
-                  src="/static/images/3527977.png" alt=""></span>
+                  src="{{url_for('static',filename='images/3527977.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-5">Learn Sat</h4>
               <a href="#sec-b0ca"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-4">
@@ -215,7 +218,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-5"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-9"><img
-                  src="/static/images/126486.png" alt=""></span>
+                  src="{{url_for('static',filename='images/126486.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-6">Learn PTE</h4>
               <a href="#sec-b0ca"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-5">
@@ -236,7 +239,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-6"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-11"><img
-                  src="/static/images/3135729.png" alt=""></span>
+                  src="{{url_for('static',filename='images/3135729.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-7">Learn GRE</h4>
               <a href="#sec-b0ca"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-6">
@@ -276,7 +279,7 @@
                   <div class="u-container-layout u-container-layout-2">
                     <img class="u-image u-image-round u-radius-20 u-image-1" data-image-width="1920"
                       data-image-height="1357" data-animation-name="zoomIn" data-animation-duration="2000"
-                      data-animation-direction="" src="/static/images/2.png">
+                      data-animation-direction="" src="{{url_for('static',filename='images/2.png')}} ">
                   </div>
                 </div>
               </div>
@@ -287,9 +290,9 @@
                   <div class="u-container-layout u-container-layout-3">
                     <img class="u-image u-image-round u-radius-20 u-image-2" data-image-width="2245"
                       data-image-height="1587" data-animation-name="zoomIn" data-animation-duration="2000"
-                      data-animation-direction="" src="/static/images/1.png">
+                      data-animation-direction="" src="{{url_for('static',filename='images/1.png')}} ">
                     <p class="u-text u-text-3">Know more about our ​faculties.</p>
-                    <a href="/faculty" data-page-id="128665193"
+                    <a href="{{url_for('main.faculty')}}" data-page-id="128665193"
                       class="u-active-none u-border-2 u-border-white u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1">view
                       more</a>
                   </div>
@@ -330,7 +333,7 @@
                 data-animation-name="zoomIn" data-animation-duration="2000" data-animation-direction=""></div>
               <h4 class="u-text u-text-1">about us</h4>
               <p class="u-custom-item u-text u-text-2">We are group of students for student.</p>
-              <a href="/about" data-page-id="68386796"
+              <a href="{{url_for('main.about')}}" data-page-id="68386796"
                 class="u-active-none u-border-2 u-border-white u-btn u-btn-rectangle u-button-style u-custom-item u-hover-none u-none u-btn-1">view
                 more</a>
             </div>
@@ -342,7 +345,7 @@
               <h4 class="u-text u-text-3">what we do</h4>
               <p class="u-custom-item u-text u-text-grey-40 u-text-4">We help students learn and crack competitive exam.
               </p>
-              <a href="/about" data-page-id="68386796"
+              <a href="{{url_for('main.about')}}" data-page-id="68386796"
                 class="u-active-none u-border-2 u-border-white u-btn u-btn-rectangle u-button-style u-custom-item u-hover-none u-none u-btn-2">view
                 more</a>
             </div>
@@ -364,7 +367,7 @@
                   class="u-container-style u-grey-5 u-layout-cell u-left-cell u-radius-50 u-shape-round u-size-20 u-layout-cell-1"
                   data-animation-name="customAnimationIn" data-animation-duration="1000">
                   <div class="u-container-layout u-container-layout-1"><span class="u-file-icon u-icon u-icon-1"><img
-                        src="/static/images/8138418.png" alt=""></span>
+                        src="{{url_for('static',filename='images/8138418.png')}} " alt=""></span>
                     <h5 class="u-align-center u-text u-text-1">Address</h5>
                     <p class="u-align-center u-text u-text-2">Something</p>
                   </div>

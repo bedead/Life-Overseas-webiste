@@ -20,9 +20,9 @@
     href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
   <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
   <!-- script -->
-  <script class="u-script" type="text/javascript" src="/static/js/jquery.js" "="" defer=""></script>
-    <script class=" u-script" type="text/javascript" src="/static/js/data.js" "="" defer=""></script>
-    <script class=" u-script" type="text/javascript" src="/static/js/toastr.js" "="" defer=""></script>
+  <script class="u-script" type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}" "="" defer=""></script>
+    <script class=" u-script" type="text/javascript" src="{{url_for('static',filename='js/data.js')}}" "="" defer=""></script>
+    <script class=" u-script" type="text/javascript" src="{{url_for('static',filename='js/toastr.js')}}" "="" defer=""></script>
     <link id=" u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
@@ -47,8 +47,8 @@
 <body class="u-body u-xl-mode" data-lang="en">
   <header class="u-black u-clearfix u-header u-sticky u-sticky-6236 u-header" id="sec-ce63">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="/" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
-        <img src="/static/images/825406866-0.png" class="u-logo-image u-logo-image-1">
+      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
+        <img src="{{url_for('static',filename='images/825406866-0.png')}} " class="u-logo-image u-logo-image-1">
       </a>
       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -71,19 +71,19 @@
           <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/" style="padding: 10px 20px;">Home</a>
+                href="{{url_for('main.index')}}" style="padding: 10px 20px;">Home</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/faculty" style="padding: 10px 20px;">Faculty</a>
+                href="{{url_for('main.faculty')}}" style="padding: 10px 20px;">Faculty</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/about" style="padding: 10px 20px;">About</a>
+                href="{{url_for('main.about')}}" style="padding: 10px 20px;">About</a>
             </li>
             <li class="u-nav-item"><a
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
-                href="/contact" style="padding: 10px 20px;">Contact</a>
+                href="{{url_for('main.contact')}}" style="padding: 10px 20px;">Contact</a>
             </li>
           </ul>
         </div>
@@ -92,13 +92,13 @@
             <div class="u-inner-container-layout u-sidenav-overflow">
               <div class="u-menu-close"></div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Home</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.index')}}">Home</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/faculty">Faculty</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.faculty')}}">Faculty</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/about">About</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.about')}}">About</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/contact">Contact</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.contact')}}">Contact</a>
                 </li>
               </ul>
             </div>
@@ -113,7 +113,7 @@
     id="carousel_4103">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-align-center u-text u-text-1">Mr.Sarabjit An​and</h1>
-      <img src="/static/images/anand-sir.jpg" class="u-align-left u-image u-image-round u-left-0 u-radius-30 u-image-1"
+      <img src="{{url_for('static',filename='images/anand-sir.jpg')}} " class="u-align-left u-image u-image-round u-left-0 u-radius-30 u-image-1"
         data-image-width="800" data-image-height="600">
       <div
         class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
@@ -136,7 +136,7 @@
             data-animation-name="customAnimationIn" data-animation-duration="1250">
             <div class="u-container-layout u-similar-container u-container-layout-1"><span
                 class="u-file-icon u-grey-40 u-icon u-icon-rounded u-radius-20 u-icon-1"><img
-                  src="/static/images/686051.png" alt=""></span>
+                  src="{{url_for('static',filename='images/686051.png')}} " alt=""></span>
               <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-grey-40 u-text-2"
                 data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                 Education</h3>
@@ -151,7 +151,7 @@
             data-animation-name="customAnimationIn" data-animation-duration="1250" data-animation-delay="0">
             <div class="u-container-layout u-similar-container u-container-layout-2"><span
                 class="u-file-icon u-grey-40 u-icon u-icon-rounded u-radius-20 u-icon-2"><img
-                  src="/static/images/2983706.png" alt=""></span>
+                  src="{{url_for('static',filename='images/2983706.png')}} " alt=""></span>
               <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-grey-40 u-text-4"
                 data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                 Teaches</h3>
@@ -262,7 +262,7 @@
               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-30 u-white" required=""></textarea>
           </div>
           <div class="u-align-left u-form-group u-form-submit">
-            <a href="/faculty" target="_self"
+            <a href="{{url_for('main.faculty')}}" target="_self"
               class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-grey-40 u-radius-30 u-btn-1">Submit</a>
             <input onclick="questionPosted()" type="submit" value="submit" class="u-form-control-hidden">
           </div>

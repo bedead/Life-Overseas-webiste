@@ -1,5 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
-from apps.pyrebase import *
+from apps.packages.pyrebase import *
 
 
 def create_app():
@@ -10,16 +10,16 @@ def create_app():
 
     with app.app_context():
         # Import parts of our application
-        from .admin import route
-        from .main import route
-        from .userLogin import route
-        from .users import route
-
+        from . import admin
+        from . import main
+        from . import userAccess
+        from . import userLogin
+        
         # Register Blueprints
-        app.register_blueprint(admin.route.admin)
-        app.register_blueprint(main.route.main)
-        app.register_blueprint(userLogin.route.userLogin)
-        app.register_blueprint(users.route.users)
+        app.register_blueprint(admin.admin)
+        app.register_blueprint(main.main)
+        app.register_blueprint(userLogin.userLogin)
+        app.register_blueprint(userAccess.users)
 
 
         return app

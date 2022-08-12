@@ -2,14 +2,12 @@
 from flask import redirect, render_template, request, url_for
 from flask import Blueprint
 from flask import current_app as app
-from apps.pyrebase import *
+from apps.packages.pyrebase import *
 
 
 # Blueprint Configuration
 admin = Blueprint(
-    'admin_bp', __name__,
-    template_folder='templates',
-    static_folder='static',
+    'admin', __name__,
     url_prefix='/admin'
 )
 
@@ -38,13 +36,13 @@ def admin_root():
                     Admin_login['adminNo']=ind
                     Admin_login["name"]=name
                         
-                    return redirect(url_for("admin_panel"))
+                    return redirect(url_for("admin.admin_panel"))
         except:
-            return redirect(url_for("index"))
+            return redirect(url_for("main.index"))
 
     return render_template("Admin.html")
 
-@admin.route("/admin/dashboard")
+@admin.route("/dashboard")
 def admin_panel():
     visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
     total_users = realtime_db.child("AppData").child("Total users").get().val()
@@ -59,12 +57,19 @@ def admin_panel():
         "users": total_users,
         "notification_count": notification_count,
         "daily_login": daily_login,
-        "all_notification": notifications
+        "all_notification": notifications,
+        "adminName":Admin_login["name"]
     }
 
     if Admin_login["locked"]==True:
-        return redirect(url_for("admin_root"))
+        return redirect(url_for("admin.admin_root"))
     elif Admin_login["locked"]==False:
         return render_template("Admin-Panel.html",admin_data=admin_data)
     else:
-        return redirect(url_for("index"))
+        return redirect(url_for("main.index"))
+
+def profile_page():
+    pass
+
+def admin_logout():
+    pass

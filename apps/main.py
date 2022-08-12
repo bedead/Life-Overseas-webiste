@@ -1,13 +1,11 @@
 # user pages
 from flask import Blueprint, redirect, render_template, request, url_for
 from flask import current_app as app
-from apps.pyrebase import *
+from apps.packages.pyrebase import *
 
 
 main = Blueprint(
-    'main_bp', __name__,
-    template_folder='templates',
-    static_folder='static',
+    'main', __name__,
 )
 
 @main.route("/")
