@@ -7,8 +7,13 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <title>Life Overseas - Contact</title>
-  <link rel="stylesheet" href="/static/css/data.css" media="screen">
-  <link rel="stylesheet" href="/static/css/Life-Overseas---Contact.css" media="screen">
+
+
+  <!-- css -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/data.css')}} " media="screen">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/Life-Overseas---Contact.css')}} " media="screen">
+  
+  
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180"
     href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
@@ -17,7 +22,9 @@
   <link rel="icon" type="image/png" sizes="16x16"
     href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
   <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
-  <!-- script -->
+  
+  
+  <!-- script and googlefonts -->
   <script class="u-script" type="text/javascript" src=" {{url_for('static',filename='js/jquery.js')}} " "="" defer=""></script>
     <script class=" u-script" type="text/javascript" src=" {{url_for('static',filename='js/data.js')}} " "="" defer=""></script>
     <link id=" u-theme-google-font" rel="stylesheet"
@@ -31,7 +38,7 @@
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "Life Overseas",
-		"logo": "/static/images/825406866-0.png",
+		"logo": "{{url_for('static',filename='images/825406866-0.png')}} ",
 		"sameAs": []
 }</script>
   <meta name="theme-color" content="#8aa6c1">
@@ -48,8 +55,7 @@
       </a>
       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-          <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white"
-            href="#">
+          <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white">
             <svg class="u-svg-link" viewBox="0 0 24 24">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
             </svg>
@@ -179,6 +185,9 @@
             </svg></span>
         </a>
       </div>
+      <h5 style="float: right;">
+        ©2022 Life Overseas, All Rights Reserved.
+      </h5>
     </div>
   </footer>
 

@@ -1,5 +1,5 @@
 # Admin Login and panel
-from flask import redirect, render_template, request, url_for
+from flask import redirect, render_template, request, session, url_for
 from flask import Blueprint
 from flask import current_app as app
 from apps.packages.pyrebase import *
@@ -19,6 +19,11 @@ Admin_login = {
 
 @admin.route("/", methods= ["POST","GET"])
 def admin_root():
+    if session['adminUser'] != None:
+        Admin_login["name"] = session['adminUser']
+        Admin_login["locked"] = False
+
+        return redirect(url_for('admin.admin_panel'))
     if request.method == "POST":
         values = request.form
         name = values["name"]
@@ -35,22 +40,24 @@ def admin_root():
                     Admin_login["locked"]=False
                     Admin_login['adminNo']=ind
                     Admin_login["name"]=name
+                    session['adminUser'] = name
                         
                     return redirect(url_for("admin.admin_panel"))
         except:
-            return redirect(url_for("main.index"))
+            pass
 
     return render_template("Admin.html")
 
 @admin.route("/dashboard")
 def admin_panel():
-    visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-    total_users = realtime_db.child("AppData").child("Total users").get().val()
-    daily_login = realtime_db.child("AppData").child("Daily logins").get().val()
-    notification_count = realtime_db.child("AppData").child("Notification count").get().val()
-    notifications = {
-
-    }
+    try:
+        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
+        total_users = realtime_db.child("AppData").child("Total users").get().val()
+        daily_login = realtime_db.child("AppData").child("Daily logins").get().val()
+        notification_count = realtime_db.child("AppData").child("Notification count").get().val()
+        notifications = dict()
+    except:
+        pass
 
     admin_data = {
         "visits": visit_count,
@@ -68,8 +75,14 @@ def admin_panel():
     else:
         return redirect(url_for("main.index"))
 
+@admin.route("/profile", methods= ["POST","GET"])
 def profile_page():
     pass
-
+@admin.route("/logout", methods= ["POST"])
 def admin_logout():
+    if session['adminUser'] != None and Admin_login["locked"]==False:
+        session.pop("adminUser", None)
+        
+@admin.route("/forms", methods= ["POST","GET"])
+def forms():
     pass

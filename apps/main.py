@@ -10,35 +10,44 @@ main = Blueprint(
 
 @main.route("/")
 def index():
-    visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-    realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    try:
+        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
+        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    except:
+        pass
 
     return render_template("Life-Overseas---Home.html")
 
 @main.route("/about")
 def about():
-    visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-    realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    try:
+        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
+        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    except:
+        pass
 
     return render_template("Life-Overseas---About.html")
 
 @main.route("/contact")
 def contact():
-    visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-    realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    try:
+        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
+        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
+    except:
+        pass
 
     return render_template("Life-Overseas---Contact.html")
 
-@main.route("/faculty",methods=["GET","POST"])
+@main.route("/faculty", methods=["GET","POST"])
 def faculty():
-    visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-    realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-
     questions = dict()
     try:
+        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
+        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
         questions = dict(realtime_db.child("AppData").child("Questions").get().val())
     except:
         pass
+    
     data= {
         "questions": questions,
     }
@@ -48,6 +57,6 @@ def faculty():
         try:
             realtime_db.child("AppData").child("Questions").child(question).set("Yet to be answered by our team.")
         except:
-            return redirect(url_for('index'))    
+            return redirect(url_for('main.index'))    
         
     return render_template("Life-Overseas---Faculty.html",data=data)

@@ -10,9 +10,12 @@
   <title>Life Overseas - Home</title>
 
 
-  
+  <!-- css -->
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/data.css') }}" media="screen">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/Life-Overseas---Home.css') }}" media="screen">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Login/card_login.css') }}" media="screen">
+
+
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180"
     href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
@@ -43,7 +46,7 @@
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "Life Overseas",
-		"logo": "/static/images/825406866-0.png",
+		"logo": "{{url_for('static',filename='images/825406866-0.png')}} ",
 		"sameAs": []
 }</script>
   <meta name="theme-color" content="#8aa6c1">
@@ -55,7 +58,8 @@
 <body class="u-body u-xl-mode" data-lang="en">
   <header class="u-black u-clearfix u-header u-sticky u-sticky-6236 u-header" id="sec-ce63">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
+      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000"
+        data-image-height="1000">
         <img src="{{url_for('static',filename='images/825406866-0.png')}} " class="u-logo-image u-logo-image-1">
       </a>
       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -93,6 +97,10 @@
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
                 href="{{url_for('main.contact')}}" style="padding: 10px 20px;">Contact</a>
             </li>
+            <li class="u-nav-item"><a
+                class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
+                href="{{url_for('userLogin.user_auth')}}" style="padding: 10px 20px;">Login / SignUp</a>
+            </li>
           </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -102,11 +110,16 @@
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.index')}}">Home</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.faculty')}}">Faculty</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.faculty')}}">Faculty</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.about')}}">About</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.contact')}}">Contact</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.contact')}}">Contact</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('userLogin.user_auth')}}">Login / SignUp</a>
                 </li>
               </ul>
             </div>
@@ -154,7 +167,7 @@
             data-animation-name="flipIn" data-animation-duration="2000" data-animation-direction="X">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2"><span
                 class="u-file-icon u-icon u-icon-rounded u-radius-20 u-white u-icon-3"><img
-                  src="{{url_for('static',filrname='images/1086916.png')}} " alt=""></span>
+                  src="{{url_for('static',filename='images/1086916.png')}} " alt=""></span>
               <h4 class="u-align-center u-text u-text-default-xs u-text-3">Find ​counsellor</h4>
               <a href="#sec-069c"
                 class="u-btn u-button-style u-dialog-link u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Start
@@ -509,6 +522,9 @@
             </svg></span>
         </a>
       </div>
+      <h5 style="float: right;">
+        ©2022 Life Overseas, All Rights Reserved.
+      </h5>
     </div>
   </footer>
   <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-9"
@@ -541,6 +557,7 @@
       width: 370px;
       min-height: 550px;
       margin: 83px auto 0;
+      background-color: rgb(26, 20, 20);
     }
 
     .u-dialog-section-9 .u-container-layout-1 {
@@ -595,11 +612,35 @@
       }
     }
   </style>
-  <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-10"
+  <section
+    class="card_login_body u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-10"
     id="sec-b0ca">
     <div class="u-align-center u-container-style u-dialog u-radius-30 u-shape-round u-white u-dialog-1">
-      <div class="u-container-layout u-container-layout-1"></div>
+      <div class="u-container-layout u-container-layout-1" style="align-items: center;">
+        <div class="main">
+          <input type="checkbox" id="chk" aria-hidden="true">
 
+          <div class="signup">
+            <form method="POST" action="{{url_for('userLogin.user_signup')}} ">
+              <label for="chk" aria-hidden="true">Sign up</label>
+              <input type="email" name="email" placeholder="Enter your email" required="">
+              <input type="password" name="pass" placeholder="Enter your password" required="">
+              <input type="password" name="pass" placeholder="Reenter your password" required="">
+              <button onclick="authVerfiy()">Sign up</button>
+            </form>
+          </div>
+
+          <div class="login">
+            <form method="POST" action="{{url_for('userLogin.user_signin')}}">
+              <label for="chk" aria-hidden="true">Login</label>
+              <input type="email" name="email" placeholder="Enter Email" required="">
+              <input type="password" name="pass" placeholder="Enter Password" required="">
+              <button>Login</button>
+            </form>
+            <a style="color: red;" href="{{url_for('userLogin.forgot_pass')}} ">Forgot password</a>
+          </div>
+        </div>
+      </div>
       <button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1"><svg class="u-svg-link"
           preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efe9"></use>
@@ -621,6 +662,7 @@
       width: 370px;
       min-height: 450px;
       margin: 83px auto 60px;
+      background-color: rgb(26, 20, 20);
     }
 
     .u-dialog-section-10 .u-container-layout-1 {
@@ -653,6 +695,8 @@
   </style>
 </body>
 <script>
+  function authVerfiy() {
+  }
 </script>
 
 </html>

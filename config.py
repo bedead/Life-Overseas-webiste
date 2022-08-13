@@ -5,7 +5,6 @@ class Config:
     SECRET_KEY = 'jhsd]e[3984764.573kjs4a1jkrjg876}][}[[.&6s'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    SERVER_NAME = 'localhost:5000'
 
 
 class ProdConfig(Config):

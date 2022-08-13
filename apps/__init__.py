@@ -14,12 +14,13 @@ def create_app():
         from . import main
         from . import userAccess
         from . import userLogin
+        from . import errors
         
         # Register Blueprints
         app.register_blueprint(admin.admin)
         app.register_blueprint(main.main)
         app.register_blueprint(userLogin.userLogin)
         app.register_blueprint(userAccess.users)
-
+        app.register_blueprint(errors.errors)
 
         return app

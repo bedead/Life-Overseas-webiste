@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Overseas | Auth</title>
+
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='images/favicon/favicon-32x32.pn') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login/card_login.css') }}" media="screen">
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Life Overseas",
+		"logo": "{{url_for('static',filename='images/825406866-0.png')}} ",
+		"sameAs": []
+}</script>
+    <meta name="theme-color" content="#8aa6c1">
+    <meta property="og:title" content="Life Overseas - Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Jost', sans-serif;
+        background: linear-gradient(to bottom, #0f0c29, rgb(26, 20, 20), black);
+    }
+
+    .main {
+        width: 400px;
+        height: 550px;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form method="POST" action="{{url_for('userLogin.user_signup')}}">
+                <label for="chk" aria-hidden="true">Create an account with as.</label>
+                <input type="email" name="email" placeholder="Enter your email" required="">
+                <input type="password" name="pass" placeholder="Enter your password" required="">
+                <input type="password" name="pass" placeholder="Reenter your password" required="">
+                <button>Sign up</button>
+            </form>
+        </div>
+
+        <div class="login">
+            <form method="POST" action="{{url_for('userLogin.user_signin')}}">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Enter Email" required="">
+                <input type="password" name="pass" placeholder="Enter Password" required="">
+
+                <button>Login</button>
+            </form>
+            <a style="color: red; margin-left: 100pt ;"
+                href="{{url_for('userLogin.forgot_pass')}} ">Forgot password</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
