@@ -25,19 +25,22 @@
 
 
   <!-- script -->
-  <script class="u-script" type="text/javascript" src=" {{ url_for('static',filename='js/jquery.js')}} " defer=""></script>
-  <script class=" u-script" type="text/javascript" src=" {{url_for('static',filename='js/data.js')}} " defer=""></script>
-  
+  <script class="u-script" type="text/javascript" src=" {{ url_for('static',filename='js/jquery.js')}} "
+    defer=""></script>
+  <script class=" u-script" type="text/javascript" src=" {{url_for('static',filename='js/data.js')}} "
+    defer=""></script>
+
 
   <!-- googlefonts -->
   <link id=" u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-  <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    
-    
-    
-    
-    <script type="application/ld+json">{
+  <link id="u-page-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+
+
+
+  <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "Life Overseas",
@@ -91,6 +94,10 @@
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
                 href="{{url_for('main.contact')}}" style="padding: 10px 20px;">Contact</a>
             </li>
+            <li class="u-nav-item"><a
+                class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
+                href="{{url_for('userLogin.user_auth')}}" style="padding: 10px 20px;">Login / SignUp</a>
+            </li>
           </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -100,11 +107,16 @@
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.index')}}">Home</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.faculty')}}">Faculty</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.faculty')}}">Faculty</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.about')}}">About</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.contact')}}">Contact</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.contact')}}">Contact</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('userLogin.user_auth')}}">Login / SignUp</a>
                 </li>
               </ul>
             </div>

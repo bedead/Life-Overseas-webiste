@@ -19,11 +19,7 @@ Admin_login = {
 
 @admin.route("/", methods= ["POST","GET"])
 def admin_root():
-    if session['adminUser'] != None:
-        Admin_login["name"] = session['adminUser']
-        Admin_login["locked"] = False
-
-        return redirect(url_for('admin.admin_panel'))
+    global Admin_login
     if request.method == "POST":
         values = request.form
         name = values["name"]
@@ -36,11 +32,9 @@ def admin_root():
             if (name in admin_names):
                 ind = admin_names.index(name)
                 if (password==admin_passwords[ind]):
-                    global Admin_login
                     Admin_login["locked"]=False
                     Admin_login['adminNo']=ind
                     Admin_login["name"]=name
-                    session['adminUser'] = name
                         
                     return redirect(url_for("admin.admin_panel"))
         except:
@@ -80,8 +74,7 @@ def profile_page():
     pass
 @admin.route("/logout", methods= ["POST"])
 def admin_logout():
-    if session['adminUser'] != None and Admin_login["locked"]==False:
-        session.pop("adminUser", None)
+    pass
         
 @admin.route("/forms", methods= ["POST","GET"])
 def forms():

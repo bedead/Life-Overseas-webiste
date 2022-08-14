@@ -7,15 +7,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <title>Life Overseas - Faculty</title>
-  
-  
+
+
   <!-- css -->
   <link rel="stylesheet" href="{{url_for('static',filename='css/data.css')}} " media="screen">
   <link rel="stylesheet" href="{{url_for('static',filename='css/Life-Overseas---Faculty.css')}} " media="screen">
   <link rel="stylesheet" href="{{url_for('static',filename='css/QnA-Faculty.css')}} " media="screen">
   <link rel="stylesheet" href="{{url_for('static',filename='css/toastr.css')}} " media="screen">
-  
-  
+
+
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="180x180"
     href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
@@ -24,8 +24,8 @@
   <link rel="icon" type="image/png" sizes="16x16"
     href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
   <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
-  
-  
+
+
   <!-- script and googlefonts -->
   <script class="u-script" type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}" "="" defer=""></script>
     <script class=" u-script" type="text/javascript" src="{{url_for('static',filename='js/data.js')}}" "="" defer=""></script>
@@ -54,13 +54,14 @@
 <body class="u-body u-xl-mode" data-lang="en">
   <header class="u-black u-clearfix u-header u-sticky u-sticky-6236 u-header" id="sec-ce63">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000" data-image-height="1000">
+      <a href="{{url_for('main.index')}}" class="u-image u-logo u-image-1" data-image-width="1000"
+        data-image-height="1000">
         <img src="{{url_for('static',filename='images/825406866-0.png')}} " class="u-logo-image u-logo-image-1">
       </a>
       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-          <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white"
-            >
+          <a
+            class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white">
             <svg class="u-svg-link" viewBox="0 0 24 24">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
             </svg>
@@ -92,6 +93,10 @@
                 class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
                 href="{{url_for('main.contact')}}" style="padding: 10px 20px;">Contact</a>
             </li>
+            <li class="u-nav-item"><a
+                class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-light-1 u-text-white"
+                href="{{url_for('userLogin.user_auth')}}" style="padding: 10px 20px;">Login / SignUp</a>
+            </li>
           </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -101,11 +106,16 @@
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.index')}}">Home</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.faculty')}}">Faculty</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.faculty')}}">Faculty</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.about')}}">About</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('main.contact')}}">Contact</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('main.contact')}}">Contact</a>
+                </li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                    href="{{url_for('userLogin.user_auth')}}">Login / SignUp</a>
                 </li>
               </ul>
             </div>
@@ -120,8 +130,9 @@
     id="carousel_4103">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-align-center u-text u-text-1">Mr.Sarabjit An​and</h1>
-      <img src="{{url_for('static',filename='images/anand-sir.jpg')}} " class="u-align-left u-image u-image-round u-left-0 u-radius-30 u-image-1"
-        data-image-width="800" data-image-height="600">
+      <img src="{{url_for('static',filename='images/anand-sir.jpg')}} "
+        class="u-align-left u-image u-image-round u-left-0 u-radius-30 u-image-1" data-image-width="800"
+        data-image-height="600">
       <div
         class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
         <div class="u-container-layout u-container-layout-1">
