@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import Flask
 from apps.packages.pyrebase import *
 
 
@@ -6,7 +6,7 @@ def create_app():
     """Create Flask application."""
     name = "Life Overseas"
     app = Flask(name, instance_relative_config=False)
-    app.config.from_object('config.DevConfig')
+    app.config.from_object('config.ProdConfig')
 
     with app.app_context():
         # Import parts of our application
