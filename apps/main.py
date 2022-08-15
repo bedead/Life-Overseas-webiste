@@ -16,7 +16,7 @@ def index():
     except:
         pass
 
-    return render_template("Life-Overseas---Home.html")
+    return render_template("main/Life-Overseas---Home.html")
 
 @main.route("/about")
 def about():
@@ -26,7 +26,7 @@ def about():
     except:
         pass
 
-    return render_template("Life-Overseas---About.html")
+    return render_template("main/Life-Overseas---About.html")
 
 @main.route("/contact")
 def contact():
@@ -36,7 +36,7 @@ def contact():
     except:
         pass
 
-    return render_template("Life-Overseas---Contact.html")
+    return render_template("main/Life-Overseas---Contact.html")
 
 @main.route("/faculty", methods=["GET","POST"])
 def faculty():
@@ -59,4 +59,4 @@ def faculty():
         except:
             return redirect(url_for('main.index'))    
         
-    return render_template("Life-Overseas---Faculty.html",data=data)
+    return render_template("main/Life-Overseas---Faculty.html",data=data)

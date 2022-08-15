@@ -86,12 +86,10 @@
 
 </body>
 <script>
-
     var status = "{{status}}"
     if (status=='error'){
         window.alert('Some internal error has occured try later.');
-    }else if(status=='success'){
-        window.alert('Account has been creted, login to continue.');
+        status = null;
     }
 </script>
 

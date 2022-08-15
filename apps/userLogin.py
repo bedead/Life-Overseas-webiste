@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask import Blueprint
 from flask import current_app as app
 import flask
@@ -19,7 +19,7 @@ def user_auth(status=None):
     except:
         pass
 
-    return render_template('userAuth.html',status=status)
+    return render_template('userLogin/userAuth.html',status=status)
 
 
 @userLogin.route("/signin",methods=["POST"])
@@ -42,9 +42,9 @@ def user_signup():
         password = values["pass"]
 
         try:
-            auth.create_user_with_email_and_password(email, password)
+            signed_user = auth.create_user_with_email_and_password(email, password)
 
-            return redirect(url_for('userLogin.user_auth'),status='success')
+            return redirect(url_for('userLogin.verify_email',status='success'))
         except:
             return redirect(url_for('userLogin.user_auth',status='error'))
                             
@@ -62,4 +62,9 @@ def forgot_pass():
         
         print(email)
 
-    return render_template("forgotPass.html")
+    return render_template("userLogin/forgotPass.html")
+
+@userLogin.route("/verify_email<status>",methods=["GET","POST"])
+def verify_email(status=None):
+
+    return render_template('userLogin/verify_email.html',status=status)

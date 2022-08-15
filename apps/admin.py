@@ -40,7 +40,7 @@ def admin_root():
         except:
             pass
 
-    return render_template("Admin.html")
+    return render_template("admin/Admin.html")
 
 @admin.route("/dashboard")
 def admin_panel():
@@ -65,7 +65,7 @@ def admin_panel():
     if Admin_login["locked"]==True:
         return redirect(url_for("admin.admin_root"))
     elif Admin_login["locked"]==False:
-        return render_template("Admin-Panel.html",admin_data=admin_data)
+        return render_template("admin/Admin-Panel.html",admin_data=admin_data)
     else:
         return redirect(url_for("main.index"))
 
