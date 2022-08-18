@@ -8,4 +8,6 @@ users = Blueprint(
 
 @users.route('/')
 def access():
-    return render_template('accessed.html')
+    # if not auth return to page 401 error
+    # else access page
+    return render_template('loged_users/accessed.html')
