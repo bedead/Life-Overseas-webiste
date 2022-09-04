@@ -16,6 +16,9 @@
         href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest') }}">
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Login/card_login.css') }}" media="screen">
@@ -65,9 +68,9 @@
             <form method="POST" action="{{url_for('userLogin.user_signup')}}">
                 <label for="chk" aria-hidden="true">Create an account with as.</label>
                 <input type="email" name="email" placeholder="Enter your email" required="">
-                <input type="password" name="pass" placeholder="Enter your password" required="">
-                <input type="password" name="passAgain" placeholder="Reenter your password" required="">
-                <button>Sign up</button>
+                <input type="password" id="pass" name="pass" placeholder="Enter your password" required="">
+                <input type="password" id="confirmpass" name="passAgain" placeholder="Confirm your password" required="">
+                <button onclick="">Sign up</button>
             </form>
         </div>
 
@@ -86,11 +89,25 @@
 
 </body>
 <script>
+
+    // return a pop if error occured
     var status = "{{status}}"
-    if (status=='error'){
-        window.alert('Some internal error has occured try later.');
-        status = null;
+
+    if (status=='error_signup'){
+        toastr.error("error occured");
     }
+    
+    // checking if both password are some or not
+    function check_password(){
+        var pass = document.querySelector('#pass');
+        var confirmpass = document.querySelector('#confirmpass');
+        if (pass == confirmpass){
+            // send post request
+        }else{
+            // prompt pop up to recheck password
+        }
+    }
+
 </script>
 
 </html>

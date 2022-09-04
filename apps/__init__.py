@@ -1,3 +1,5 @@
+# @author Satyam Mishra
+
 from flask import Flask
 from apps.packages.pyrebase import *
 
@@ -6,6 +8,8 @@ def create_app():
     """Create Flask application."""
     name = "Life Overseas"
     app = Flask(name, instance_relative_config=False)
+    # selecting config file for application to run
+    # Basic config, Dev, and Prod
     app.config.from_object('config.DevConfig')
 
     with app.app_context():
@@ -22,5 +26,5 @@ def create_app():
         app.register_blueprint(userLogin.userLogin)
         app.register_blueprint(userAccess.users)
         app.register_blueprint(errors.errors)
-
+        # returning app
         return app

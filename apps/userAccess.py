@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
-from flask import current_app as app
+# @author Satyam Mishra
+
+from flask import Blueprint, abort, render_template, session
 
 users = Blueprint(
     'users', __name__,
@@ -10,4 +11,7 @@ users = Blueprint(
 def access():
     # if not auth return to page 401 error
     # else access page
-    return render_template('loged_users/accessed.html')
+    if session['email'] != None and session['localId'] != None:
+        return render_template('loged_users/accessed.html')
+    else:
+        abort(401)
