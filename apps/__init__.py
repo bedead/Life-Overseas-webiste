@@ -14,14 +14,12 @@ def create_app():
 
     with app.app_context():
         # Import parts of our application
-        from . import admin
         from . import main
         from . import userAccess
         from . import userLogin
         from . import errors
         
         # Register Blueprints
-        app.register_blueprint(admin.admin)
         app.register_blueprint(main.main)
         app.register_blueprint(userLogin.userLogin)
         app.register_blueprint(userAccess.users)
