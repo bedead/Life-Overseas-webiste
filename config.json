@@ -1,10 +1,11 @@
 {
-    "apiKey": "AIzaSyALZS0dDe0Btyg_K7YFOOnWRNkJxapKMK0",
-    "authDomain": "life-overseas.firebaseapp.com",
-    "databaseURL": "https://life-overseas-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "projectId": "life-overseas",
-    "storageBucket": "life-overseas.appspot.com",
-    "messagingSenderId": "2966303536",
-    "appId": "1:2966303536:web:061114482e2d9d4c870ef5",
-    "measurementId": "G-D52BSC4QRN"
+    "apiKey": "AIzaSyDxilzoJ3jUMgvjV6_JeTVcqfDbCNnw9xs",
+    "authDomain": "life-overseas-a7ab1.firebaseapp.com",
+    "databaseURL": "https://life-overseas-a7ab1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "projectId": "life-overseas-a7ab1",
+    "storageBucket": "life-overseas-a7ab1.appspot.com",
+    "messagingSenderId": "778351250762",
+    "appId": "1:778351250762:web:d0563c6208121549d885b3",
+    "measurementId": "G-CXG852FQ1P",
+    "serviceAccount": "lifeOverseas_admin.json"
 }

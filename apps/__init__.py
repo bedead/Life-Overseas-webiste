@@ -1,7 +1,6 @@
 # @author Satyam Mishra
 
 from flask import Flask
-from apps.packages.pyrebase import *
 
 
 def create_app():
