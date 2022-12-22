@@ -1,7 +1,7 @@
 # @author Satyam Mishra
 
 from flask import Flask
-
+from .config import *
 
 def create_app():
     """Create Flask application."""
@@ -9,7 +9,7 @@ def create_app():
     app = Flask(name, instance_relative_config=False)
     # selecting config file for application to run
     # Basic config, Dev, and Prod
-    app.config.from_object('config.DevConfig')
+    app.config.from_object(config.ProdConfig)
 
     with app.app_context():
         # Import parts of our application
