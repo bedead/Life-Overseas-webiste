@@ -1,7 +1,7 @@
 
 # Life Overseas 
 Frontend build using basic html, css and javascript.<br>
-Backend build using python framework and delpoyed to Heroku.
+Backend build using python framework and delpoyed to vercel.
 
 ## Authors
 
