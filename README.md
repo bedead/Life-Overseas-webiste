@@ -1,6 +1,7 @@
 
 # Life Overseas 
-Build using Heroku and Python framework.
+Frontend build using basic html, css and javascript.
+Backend build using python framework and delpoyed to Heroku.
 
 ## Authors
 
