@@ -1,27 +1,17 @@
 # @author Satyam Mishra
 
 from flask import Blueprint, abort, redirect, render_template, request, url_for
-from apps.packages.firebase_connect import *
-from apps.packages.supabase_init import *
 
 # Blueprint Configuration adding to main app
 main = Blueprint(
     'main', __name__,
 )
 
-supabase : Client = create_client(url, key)
 
 @main.route("/")
 def index():
     '''INDEX PAGE OF WEBSITE (AT websiteName)'''
 
-    try:
-        # FETCHING AND INCREMENTING PAGE VISIT COUNT
-        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-    except:
-        # IF EXCEPTION OCCURED ABORT TO CONNECTION NOT FOUND
-        pass
 
     # RETURN HOME PAGE
     return render_template("main/Life-Overseas---Home.html")
@@ -32,13 +22,7 @@ def index():
 @main.route("/about")
 def about():
     '''ABOUT PAGE OF MAIN WEBSITE (AT website/about)'''
-    try:
-        # FETCHING AND INCREMENTING PAGE VISIT COUNT
-        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-    except:
-        # IF CONNETION LOST ABORTING TO 502 ERROR
-        pass
+
 
     # RETURNING ABOUT PAGE TEMPLATE
     return render_template("main/Life-Overseas---About.html")
@@ -49,13 +33,7 @@ def about():
 @main.route("/contact")
 def contact():
     '''CONTACT PAGE OF MAIN WEBSITE (AT website/contact'''
-    try:
-        # FETCHING AND INCREMENTING PAGE VISIT COUNT
-        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-    except:
-        # IF CONNETION LOST ABORTING TO 502 ERROR
-        pass
+
 
     # RETURNING CONTACT PAGE TEMPLATE
     return render_template("main/Life-Overseas---Contact.html")
@@ -99,7 +77,7 @@ def faculty():
     #     else:
     #         # PASSING MESSAGE IF NO EXCEPTION OCCURED (MEANS QUESTION POSTED)
     #         pass    
-    # # RETURNING FACULTY PAGE TEMPLATE
-    # return render_template("main/Life-Overseas---Faculty.html",data=data)
+    # RETURNING FACULTY PAGE TEMPLATE
+    return render_template("main/Life-Overseas---Faculty.html")
 
 

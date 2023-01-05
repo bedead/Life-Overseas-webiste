@@ -2,7 +2,6 @@
 
 from flask import abort, redirect, render_template, request, session, url_for
 from flask import Blueprint
-from apps.packages.firebase_connect import *
 
 
 
@@ -15,11 +14,7 @@ userLogin = Blueprint(
 @userLogin.route("/auth",methods=["GET"])
 @userLogin.route("/auth/<status>",methods=["GET"])
 def user_auth(status=None):
-    try:
-        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-    except:
-        pass
+
 
 
     return render_template('userLogin/userAuth.html',status=status)
@@ -27,35 +22,38 @@ def user_auth(status=None):
 
 @userLogin.route("/signin",methods=["POST"])
 def user_signin():
-    if session['email'] != None and session['password'] != None:
-        email = session['email']
-        password = session['password']
+    return redirect(url_for('userLogin.user_auth',status='error_login'))
+    # if session['email'] != None and session['password'] != None:
+    #     email = session['email']
+    #     password = session['password']
 
-        try:
-            loged_user = auth.sign_in_with_email_and_password(email,password)
-        except:
-            return redirect(url_for('userLogin.user_auth',status='error_login'))
-        else:
-            session['localId'] = loged_user['localId']
+    #     try:
+    #         loged_user = auth.sign_in_with_email_and_password(email,password)
+    #     except:
+    #         return redirect(url_for('userLogin.user_auth',status='error_login'))
+    #     else:
+    #         session['localId'] = loged_user['localId']
 
-            return redirect(url_for('users.access'))
+    #         return redirect(url_for('users.access'))
 
-    if request.method=="POST":
-        values = request.form
-        email = values["email"]
-        password = values["pass"]
+    # if request.method=="POST":
+    #     values = request.form
+    #     email = values["email"]
+    #     password = values["pass"]
         
-        try:
-            valid = auth.get_user_by_email(email)
+    #     try:
+    #         valid = auth.get_user_by_email(email)
 
-            loged_user = auth.sign_in_with_email_and_password(email,password)
-        except:
-            pass
-        else:
-            session['email'] = loged_user['email']
-            session['localId'] = loged_user['localId']
+    #         loged_user = auth.sign_in_with_email_and_password(email,password)
+    #     except:
+    #         pass
+    #     else:
+    #         session['email'] = loged_user['email']
+    #         session['localId'] = loged_user['localId']
 
-            return redirect(url_for('users.access'))
+    #         return redirect(url_for('users.access'))
+    
+            
 
 
 @userLogin.route("/signup",methods=["POST"])
@@ -81,11 +79,7 @@ def user_signup():
 
 @userLogin.route("/forgot_pass",methods=["GET","POST"])
 def forgot_pass():
-    try:
-        visit_count = realtime_db.child("AppData").child("Website visit count").get().val()
-        realtime_db.child("AppData").child("Website visit count").set(visit_count+1)
-    except:
-        pass
+
     if request.method=="POST":
         data = request.form
         email = data['email']

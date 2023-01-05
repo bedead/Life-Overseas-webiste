@@ -9,3 +9,5 @@ todo.txt
 .env
 adminConfig.json
 config.json
+apps\config.py
+apps\packages
