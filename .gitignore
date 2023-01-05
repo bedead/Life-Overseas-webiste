@@ -2,3 +2,5 @@ __pycache__
 .venv
 apps\__pycache__
 todo.txt
+Procfile
+.vercel
