@@ -7,3 +7,5 @@ apps/userLogin/__pycache__
 apps/users/__pycache__  
 todo.txt
 .env
+adminConfig.json
+config.json
