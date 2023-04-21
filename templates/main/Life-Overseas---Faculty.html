@@ -280,15 +280,16 @@
           <div class="u-align-left u-form-group u-form-submit">
             <a href="{{url_for('main.faculty')}}" target="_self"
               class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-grey-40 u-radius-30 u-btn-1">Submit</a>
-            <input onclick="questionPosted()" type="submit" value="submit" class="u-form-control-hidden">
+            <input onclick="window.alert('Question has been posted.');" type="submit" value="submit"
+              class="u-form-control-hidden">
           </div>
         </form>
       </div>
     </div>
   </section>
 
-  {% if data.questions %}
-  <section class="u-align-center u-black u-clearfix u-section-3" id="sec-1468">
+  <!-- {% if data.questions %} -->
+  <!-- <section class="u-align-center u-black u-clearfix u-section-3" id="sec-1468">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-text u-text-default u-text-1">Q&amp;A</h2>
       <div class="u-accordion u-faq u-spacing-10 u-accordion-1">
@@ -300,7 +301,7 @@
               class="u-accordion-link-icon u-icon u-text-palette-1-light-2 u-icon-3"><svg class="u-svg-link"
                 preserveAspectRatio="xMidYMin slice" viewBox="0 0 448 448" style="">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7f79"></use>
-              </svg><svg class="u-svg-content" viewBox="0 0 448 448" id="svg-7f79" style="">
+              </svg><svg class="u-svg-content" viewBox="0 0 448 448" id="svg-7f79">
                 <path
                   d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0">
                 </path>
@@ -310,7 +311,7 @@
             aria-labelledby="link-accordion-854e">
             <div class="u-container-layout u-container-layout-3">
               <div class="u-clearfix u-rich-text u-text">
-                <p>{{value}}</p>
+                <p> {{value}}</p>
               </div>
             </div>
           </div>
@@ -318,8 +319,8 @@
         {% endfor %}
       </div>
     </div>
-  </section>
-  {% endif %}
+  </section> -->
+  <!-- {% endif %} -->
 
   <footer class="u-black u-clearfix u-footer" id="sec-ee34">
     <div class="u-clearfix u-sheet u-sheet-1">

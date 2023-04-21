@@ -57,9 +57,9 @@ def faculty():
     #     # IF CONNETION LOST ABORTING TO 502 ERROR
     #     pass
     # # PASSING QUESTIONS DICT INSIDE DATA DICT VARIBALE
-    # data= {
-    #     "questions": questions,
-    # }
+    data= {
+
+    }
 
     # print(questions)
     # # IF POST METHOD IS REQUESTED 
@@ -78,6 +78,6 @@ def faculty():
     #         # PASSING MESSAGE IF NO EXCEPTION OCCURED (MEANS QUESTION POSTED)
     #         pass    
     # RETURNING FACULTY PAGE TEMPLATE
-    return render_template("main/Life-Overseas---Faculty.html")
+    return render_template("main/Life-Overseas---Faculty.html", data=data)
 
 
